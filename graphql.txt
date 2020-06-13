@@ -1,0 +1,48 @@
+# {
+#   accounts {
+#     id
+#     name
+#   }
+# }
+
+# query GetAccountData($id: String!) {
+#   account(id: $id){
+#     name
+#   }
+# }
+
+# mutation CreateAccount($name: String!) {
+#   createAccount(name: $name) {
+#     id
+#     name
+#   }
+# }
+
+# mutation CreateBlog($account: String!, $title: String!, $content: String!) {
+#   createBlog(account: $account, title: $title, content: $content) {
+#     id
+#     title,
+#     content
+#   }
+# }
+
+query GetBlogs($account: String!) {
+  account(id: $account){
+    id,
+    name
+ }
+  blogs(account: $account) {
+    title,
+    content,
+    account
+  }
+}
+
+
+{
+  "id": "007",
+  "name": "Nguyen Van A",
+  "account": "40a1c102-0941-43d0-ba76-46854e58b0ac",
+  "title": "avc",
+  "content": "fff"
+}
